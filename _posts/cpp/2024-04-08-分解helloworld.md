@@ -2,7 +2,7 @@
 title: 分解helloworld
 date: 2024-04-08 00:00:00 +0800
 last_modified_at: 2024-04-08 00:00:00 +0800
-categories: [cpp, 语法]
+categories: [cpp, syntax]
 tags: [cpp]
 author: author1
 ---
