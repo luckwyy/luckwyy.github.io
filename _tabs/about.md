@@ -12,5 +12,3 @@ order: 4
 - 网站：油管、b站@TheCherno视频
 - 网站：runoob.com 菜鸟教程
 - 网站：cppreference.com C++标准资源库
-
-更新和思考真是一件让人很充实的事情
