@@ -94,8 +94,7 @@ error: ‘cout’ undeclared (first use in this function)
 **问题**：`include`是复制粘贴文件，那如果不小心在一个问题中`include`一个头文件多次怎么办？预处理后岂不是有多个相同命名的变量或函数了。
 
 在使用vs新建头文件会发现IDE给头文件加上了`#pragma once`指令，这这个指令在预处理中的意思便是说：
-请不要把重复的头文件复制多次，但并不意味着你不能在不同的文件中引入相同的头文件，只是说在同一个文件中
-如果引入多个相同的头文件预处理不会复制多次。
+请不要把重复的头文件复制多次，但并不意味着你不能在不同的文件中引入相同的头文件，只是说在同一个文件中如果引入多个相同的头文件预处理不会复制多次。
 
 创建一个log.h：
 ```
@@ -144,6 +143,15 @@ void logger() {
 此时编译main.h也不会报错，哪怕log.h被引入多次。
 
 相反的，`ifdef`指令便是if define的缩写。显然`pragma`要简洁很多。
+
+但有意思的是，如果查看头文件源码，会发现**C++头文件基本都用`#ifndef`来防止重复引用**，每个如此，如`vector`：
+```
+#ifndef _GLIBCXX_VECTOR
+#define _GLIBCXX_VECTOR 1
+#pragma GCC system_header
+...
+#endif /* _GLIBCXX_VECTOR */
+```
 
 #### 头文件和预处理3：""和<>引入 以及 一些预处理指令、预处理宏
 
